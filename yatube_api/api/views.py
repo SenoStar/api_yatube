@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.generics import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import PostSerializer, GroupSerializer, CommentSerializer
 from .permissions import PERMISSIONS
@@ -9,7 +10,7 @@ from posts.models import Group, Post
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     """ViewSet для модели Group."""
 
-    permission_classes = PERMISSIONS
+    permission_classes = (IsAuthenticated,)
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 

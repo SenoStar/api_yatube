@@ -13,4 +13,4 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
 # Для проверки регистрации пользователя.
 # Ещё проврека автора комма или поста.
-PERMISSIONS = [IsAuthenticated, IsOwnerOrReadOnly]
+PERMISSIONS = (IsAuthenticated, IsOwnerOrReadOnly,)
